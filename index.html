@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Nexus Talk</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <script src="http://10.16.49.151:3000/socket.io/socket.io.js"></script>
+    <script defer src="script.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f9fa;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: black;
+            font-weight: 900;
+            background-image: url('bbig.png');
+            background-size: cover;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
+
+        .text-white {
+            color: white;
+        }
+
+        .font-black {
+            font-weight: 900;
+        }
+
+        .md\:text-\[60px\] {
+            font-size: 60px;
+        }
+
+        .sm\:text-\[50px\] {
+            font-size: 50px;
+        }
+
+        .xs\:text-\[40px\] {
+            font-size: 40px;
+        }
+
+        .text-\[30px\] {
+            font-size: 30px;
+        }
+
+        #chat-container {
+            width: 80%;
+            max-width: 800px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 80%;
+        }
+
+        #message-container {
+            flex-grow: 1;
+            overflow-y: auto;
+        }
+
+        #message-container div {
+            padding: 15px;
+            border-bottom: 1px solid #e9ecef;
+            color: #495057;
+            transition: background-color 0.3s;
+        }
+
+        #message-container div:nth-child(2n) {
+            background-color: rgba(241, 243, 245, 0.8);
+        }
+
+        #send-container {
+            display: flex;
+            flex-direction: column;
+            padding: 15px;
+            background-color: #ffffff;
+            border-top: 1px solid #e9ecef;
+        }
+
+        #message-input {
+            flex-grow: 1;
+            border: 1px solid #ced4da;
+            border-radius: 20px;
+            padding: 10px 15px;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        #message-input:focus {
+            outline: none;
+            border-color: #007bff;
+        }
+
+        #send-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 0;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        #send-button:hover {
+            background-color: #0056b3;
+        }
+
+        #send-button:disabled {
+            background-color: #b0c4de;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body class="text-white font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px]">
+    <div id="chat-container">
+        <div id="message-container"></div>
+        <form id="send-container">
+            <input type="text" id="message-input" placeholder="Type a message..." required>
+            <button type="submit" id="send-button">Send</button>
+        </form>
+    </div>
+</body>
+</html>
